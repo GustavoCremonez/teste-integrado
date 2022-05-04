@@ -1,30 +1,20 @@
+const { isValidObjectId } = require('mongoose')
 const UniversityModel = require('../model/universities')
 
-async function get(req, res){
-    const { id, country} = req.params
+async function get(req, res) {
+    const { country } = req.params
 
-    const filterId = id ? { _id: id} : null
-    const filterCountry = country ? { country: country} : null
+    const filterCountry = country ? { country: country } : null
 
-    if(filterId){
-        const university = await UniversityModel.findOne(filterId)
-        res.send(university)
-    }
-    else if(filterCountry){
-        const universities = await UniversityModel.find(filterCountry)
-        res.send(universities)
-    }
-    else{
-        const universities = await UniversityModel.find()
-        res.send(universities)
-    }
+    const universities = await UniversityModel.find(filterCountry)
+    res.send(universities)
 }
 
 async function getById(req, res) {
     const { id } = req.params
-
-    const university = await UniversityModel.findOne(id)
-    res.send(university)
+    
+    const universities = await UniversityModel.find({ _id: id })
+    res.send(universities)
 }
 
 async function post(req, res) {
@@ -61,7 +51,7 @@ async function put(req, res) {
 
 async function remove(req, res) {
     const { id } = req.params
-    remove = await UniversityModel.deleteOne({ _id: id})
+    remove = await UniversityModel.deleteOne({ _id: id })
         .then(() => {
             res.send({
                 message: 'success'
