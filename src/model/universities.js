@@ -13,7 +13,6 @@ const schema = new mongoose.Schema({
     },
     country: {
         type: String,
-        unique: true
     },
     domains: [{
         type: String,
