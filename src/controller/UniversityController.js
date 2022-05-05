@@ -3,12 +3,14 @@ const axios = require('axios')
 const UniversityModel = require('../model/universities')
 
 async function get(req, res) {
-	const { country } = req.params
-
+	const { page = 1, limit = 20, country = undefined} = req.query
 	const filterCountry = country ? { country: country } : null
+	const universities = await UniversityModel.find(filterCountry).limit(limit * 1).skip((page - 1) * limit)
 
-	const universities = await UniversityModel.find(filterCountry)
-	res.send(universities)
+	res.send({
+		total: universities.length,
+		universities
+	})
 }
 
 async function getById(req, res) {
