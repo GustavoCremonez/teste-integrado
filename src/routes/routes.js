@@ -7,5 +7,6 @@ router.get('/university/:id', UniversityController.getById)
 router.post('/universities', UniversityController.post)
 router.put('/universities/:id', UniversityController.put)
 router.delete('/universities/:id', UniversityController.remove)
+router.get('/universities/filldatabase/:country', UniversityController.Api)
 
 module.exports = router
