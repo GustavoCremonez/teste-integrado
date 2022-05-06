@@ -3,9 +3,11 @@ const axios = require('axios')
 const UniversityModel = require('../model/universities')
 
 async function get(req, res) {
-	const { page = 1, limit = 20, country = undefined} = req.query
+	const { page = 1, limit = 20, country = undefined } = req.query
 	const filterCountry = country ? { country: country } : null
-	const universities = await UniversityModel.find(filterCountry).limit(limit * 1).skip((page - 1) * limit)
+	const universities = await UniversityModel.find(filterCountry)
+		.limit(limit * 1)
+		.skip((page - 1) * limit);
 
 	res.send({
 		total: universities.length,
@@ -44,7 +46,11 @@ async function put(req, res) {
 		domains
 	} = req.body
 
-	const university = await UniversityModel.findOneAndUpdate({ _id: id }, { web_pages, name, domains }, { new: true })
+	const university = await UniversityModel.findOneAndUpdate(
+		{ _id: id },
+		{ web_pages, name, domains },
+		{ new: true }
+	);
 
 	res.send({
 		message: 'success',
@@ -67,7 +73,7 @@ async function remove(req, res) {
 		})
 }
 
-async function Api(req, res) {
+async function apiFillDataBase(req, res) {
 	const baseURL = 'http://universities.hipolabs.com/search?country='
 	const { country } = req.params
 
@@ -79,7 +85,7 @@ async function Api(req, res) {
 				const university = new UniversityModel(data)
 				university.save()
 					.then(() => {
-						console.log('ok')
+						console.log('Universidade adicionada com sucesso')
 					})
 					.catch((error) => {
 						console.log(error)
@@ -102,5 +108,5 @@ module.exports = {
 	post,
 	put,
 	remove,
-	Api,
+	apiFillDataBase,
 }
