@@ -32,7 +32,12 @@ $ npm install
 $ npm run dev
   
 #### Para ter acesso as informações das universidades vai em http://localhost:8080/api/universities
-  
+
+# Conectando o banco de dados
+  Para fazer a conexao do banco de dados, terá que fazer uma cópia do arquivo .env.examplo que se encontra na raiz do projeto e o renomear para apenas .env
+  e então preencher as variaveis com os dados do seu ambiente, segue imagem de exemplo.
+ 
+![Db connection img to doc](https://github.com/GustavoCremonez/teste-integrado/blob/master/doc/DB%20connection%20doc.png) <p>
   
 # Como usar o projeto
 ### O projeto possui os seguintes endpoints e suas caracteristicas (Que podemos testar pelo postman): <p>
