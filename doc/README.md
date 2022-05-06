@@ -35,15 +35,18 @@ $ npm run dev
   
   
 # Como usar o projeto
-### O projeto possui os seguintes endpoints e suas caracteristicas: <p>
+### O projeto possui os seguintes endpoints e suas caracteristicas (Que podemos testar pelo postman): <p>
 <h3> Método GET: </h3>
   
   <li> http://localhost:8080/api/universities/ -> Que resultara na busca de mais de uma universidade, você tem a opção de passar as páginas, 
     o limite de dados que será trazido por pagina (que por padrão é 20), e o país que deseja filtrar.
     <p> <strong> EX: http://localhost:8080/api/universities/?page=1&country=Brazil&limit=10 </strong> <p>
   <li> http://localhost:8080/api/university/[ID] -> Que resultara na busca de apenas uma universidade, onde você obrigatoriamente tem que passar o id 
-    da universade que deseja ver <p> <strong> EX: http://localhost:8080/api/university/62740c1189d1a027260e2d29 </strong> <p>
-    
+    da universade que deseja ver <p> <strong> EX: http://localhost:8080/api/university/62740c1189d1a027260e2d29 </strong> <p><p>
+
+  <img src:"GetMethodForUniversities.png" alt='Como executar o método GET'><p>
+  <img src:"GetMethodForUniversities.png" alt='Como executar o método GET'><p>
+  
 <h3> Método POST: </h3> 
    <li> http://localhost:8080/api/universities -> Neste método você ira passar um json para o corpo da requisição com os seguintes campos: <p>
         "alpha_two_code": " ", Representa a sigla do nome do país de origem da faculdade EX: BR (Não pode ser nulo).<p>
