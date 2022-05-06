@@ -9,7 +9,8 @@ ja salvos pela API externa e também criar novos dados.</h3>
 <li> AXIOS
 <li> MONGODB
 <li> MONGOOSE
-<li>CORS
+<li> CORS
+<li> DOTENV
   
 # Pré-requisitos 
 
@@ -23,14 +24,14 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 $ git clone <https://github.com/GustavoCremonez/teste-integrado.git>
   
 #### Vá para a pasta do projeto
-
+$ cd teste-integrado
 ### Instale as dependências
 $ npm install
   
 ### Execute a aplicação em modo de desenvolvimento
 $ npm run dev
   
-#### O servidor inciará na porta:8080
+#### Para ter acesso as informações das universidades vai em http://localhost:8080/api/universities
   
   
 # Como usar o projeto
